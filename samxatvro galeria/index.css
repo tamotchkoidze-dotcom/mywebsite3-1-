@@ -1,0 +1,796 @@
+:root {
+  color-scheme: light;
+  --paper: #f5f1e8;
+  --ink: #24231f;
+  --muted: #77736b;
+  --accent: #bd4d35;
+  --line: #ded8cd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Sylfaen", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header {
+  min-height: 82px;
+  padding: 0 8.3%;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.brand-mark {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-family: "Sylfaen", Georgia, serif;
+  font-size: 17px;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.site-nav a:not(.nav-ticket) {
+  transition: color 160ms ease;
+}
+
+.site-nav a:not(.nav-ticket):hover,
+.text-link:hover {
+  color: var(--accent);
+}
+
+.site-nav a[aria-current="page"]:not(.nav-ticket) {
+  color: var(--accent);
+}
+
+.nav-ticket {
+  padding: 12px 17px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+}
+
+.nav-ticket[aria-current="page"] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.nav-ticket span {
+  margin-left: 9px;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: 6%;
+  min-height: 570px;
+  padding: 62px 9% 72px 11%;
+  overflow: hidden;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 13px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 23px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 21px;
+  font-family: "Sylfaen", Georgia, serif;
+  font-size: clamp(38px, 5vw, 66px);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 1.28;
+}
+
+h1 em {
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.hero-description {
+  max-width: 390px;
+  margin-bottom: 27px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  transition: color 160ms ease;
+}
+
+.hero-index {
+  display: block;
+  margin-top: 58px;
+  color: #a7a094;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.art-mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(135px, 17vw));
+  grid-template-areas:
+    "vangogh vangogh monet piros"
+    "vangogh vangogh matisse cezanne";
+  gap: 10px;
+  min-width: 0;
+  padding: 10px;
+  background: #e9e3d8;
+  box-shadow: 0 20px 55px rgb(52 42 27 / 12%);
+  transform: rotate(1deg);
+}
+
+.mosaic-art {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #d8d1c5;
+}
+
+.mosaic-art::after {
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(transparent, rgb(20 18 15 / 68%));
+  content: "";
+}
+
+.mosaic-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.mosaic-art:hover img {
+  transform: scale(1.05);
+}
+
+.mosaic-art span {
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  text-shadow: 0 1px 5px rgb(0 0 0 / 35%);
+}
+
+.mosaic-van-gogh {
+  grid-area: vangogh;
+}
+
+.mosaic-monet {
+  grid-area: monet;
+}
+
+.mosaic-pirosmani {
+  grid-area: piros;
+}
+
+.mosaic-matisse {
+  grid-area: matisse;
+}
+
+.mosaic-cezanne {
+  grid-area: cezanne;
+}
+
+.hero-side-note {
+  position: absolute;
+  right: 4.5%;
+  bottom: 51px;
+  color: #a7a094;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  writing-mode: vertical-rl;
+}
+
+.exhibitions {
+  padding: 76px 10% 92px;
+  background: #fffdf8;
+}
+
+.all-exhibitions {
+  margin-top: 30px;
+}
+
+.page-intro {
+  padding: 82px 14% 64px;
+}
+
+.page-intro .eyebrow {
+  margin-bottom: 17px;
+}
+
+.page-intro h1 {
+  margin-bottom: 15px;
+}
+
+.page-intro h1 span {
+  color: var(--accent);
+}
+
+.page-intro > p:last-child {
+  max-width: 580px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.page-exhibitions {
+  padding-top: 22px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 12px;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-family: "Sylfaen", Georgia, serif;
+  font-size: clamp(27px, 3vw, 39px);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+
+h2 span {
+  color: var(--accent);
+}
+
+.section-note {
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+  text-align: right;
+}
+
+.exhibition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.exhibition-card {
+  min-width: 0;
+}
+
+.artwork-link {
+  position: relative;
+  display: block;
+  margin-bottom: 17px;
+  overflow: hidden;
+  background: #e7e1d7;
+}
+
+.artwork-link img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.22;
+  object-fit: cover;
+  transition: transform 350ms ease;
+}
+
+.exhibition-pirosmani .artwork-link img {
+  object-position: center;
+}
+
+.artwork-link:hover img {
+  transform: scale(1.035);
+}
+
+.image-credit {
+  position: absolute;
+  right: 9px;
+  bottom: 9px;
+  padding: 6px 8px;
+  background: rgb(25 25 25 / 70%);
+  color: white;
+  font-size: 9px;
+}
+
+.card-meta,
+.card-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-meta {
+  margin-bottom: 9px;
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card-meta span:last-child {
+  color: #a7a094;
+}
+
+.exhibition-card h3 {
+  margin-bottom: 8px;
+  font-family: "Sylfaen", Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.exhibition-card h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  letter-spacing: -0.045em;
+}
+
+.exhibition-card > p {
+  min-height: 44px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.card-date {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.card-date span:last-child {
+  color: var(--ink);
+  font-size: 17px;
+}
+
+.site-footer {
+  min-height: 86px;
+  padding: 0 10%;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.site-footer .brand {
+  color: var(--ink);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.artist-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  padding: 0 10% 90px;
+  background: #fffdf8;
+}
+
+.artist-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
+  align-items: center;
+  gap: 7%;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.artist-card img {
+  display: block;
+  width: 100%;
+  max-height: 280px;
+  aspect-ratio: 1.5;
+  object-fit: cover;
+  background: #e7e1d7;
+}
+
+.artist-card-copy .card-meta {
+  margin-bottom: 12px;
+}
+
+.artist-card h2,
+.visit-note h2 {
+  margin: 0 0 13px;
+  font-family: "Sylfaen", Georgia, serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+
+.artist-card-copy > p:not(.card-meta),
+.visit-note > p:last-child,
+.visit-detail > p:not(.eyebrow) {
+  max-width: 520px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+}
+
+.artist-card .text-link {
+  font-size: 11px;
+}
+
+.visit-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 8%;
+  padding: 0 10% 90px;
+}
+
+.visit-main {
+  min-width: 0;
+}
+
+.visit-note {
+  margin-bottom: 26px;
+}
+
+.visit-note .eyebrow,
+.visit-detail .eyebrow {
+  margin-bottom: 11px;
+}
+
+.visit-map {
+  position: relative;
+  min-height: 330px;
+  overflow: hidden;
+  background-color: #e8e4da;
+  background-image:
+    linear-gradient(34deg, transparent 47%, #f8f5ed 48%, #f8f5ed 53%, transparent 54%),
+    linear-gradient(112deg, transparent 40%, #d7d1c5 41%, #d7d1c5 42%, transparent 43%),
+    linear-gradient(8deg, transparent 65%, #f8f5ed 66%, #f8f5ed 70%, transparent 71%);
+}
+
+.map-street {
+  position: absolute;
+  display: block;
+  height: 8px;
+  background: #f8f5ed;
+}
+
+.map-street-one {
+  top: 28%;
+  left: -8%;
+  width: 120%;
+  transform: rotate(-12deg);
+}
+
+.map-street-two {
+  top: 67%;
+  left: -10%;
+  width: 120%;
+  transform: rotate(16deg);
+}
+
+.map-street-three {
+  top: 45%;
+  left: 22%;
+  width: 80%;
+  transform: rotate(72deg);
+}
+
+.map-park {
+  position: absolute;
+  right: 12%;
+  bottom: 12%;
+  width: 24%;
+  height: 25%;
+  border-radius: 48% 52% 38% 62%;
+  background: #c9d0b4;
+  transform: rotate(-18deg);
+}
+
+.map-pin {
+  position: absolute;
+  top: 43%;
+  left: 49%;
+  display: grid;
+  width: 39px;
+  height: 39px;
+  place-items: center;
+  border: 4px solid #fffdf8;
+  border-radius: 50% 50% 50% 0;
+  background: var(--accent);
+  color: white;
+  font-family: "Sylfaen", Georgia, serif;
+  font-size: 18px;
+  transform: rotate(-45deg);
+}
+
+.map-pin::first-letter {
+  transform: rotate(45deg);
+}
+
+.map-label {
+  position: absolute;
+  top: calc(43% + 45px);
+  left: calc(49% - 20px);
+  padding: 6px 9px;
+  background: #fffdf8;
+  color: var(--ink);
+  font-size: 10px;
+  box-shadow: 0 4px 12px rgb(52 42 27 / 10%);
+}
+
+.visit-details {
+  align-self: start;
+  border-top: 1px solid var(--line);
+}
+
+.visit-detail {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.visit-detail strong {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.visit-detail .detail-muted {
+  margin: 9px 0 0;
+  font-size: 10px;
+}
+
+.visit-detail .text-link {
+  font-size: 11px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+  .site-header {
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+
+  .hero {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4%;
+    min-height: 480px;
+    padding: 55px 7%;
+  }
+
+  .art-mosaic {
+    grid-template-rows: repeat(2, minmax(120px, 19vw));
+    gap: 7px;
+    padding: 7px;
+  }
+
+  .exhibitions {
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+
+  .exhibition-grid {
+    gap: 16px;
+  }
+
+  .artist-grid,
+  .visit-layout {
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 70px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .site-nav {
+    justify-content: space-between;
+    gap: 5px;
+    font-size: 10px;
+  }
+
+  .nav-ticket {
+    padding: 7px 9px;
+  }
+
+  .page-intro {
+    padding: 58px 8% 42px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 48px 8% 60px;
+  }
+
+  .hero-index {
+    margin-top: 28px;
+  }
+
+  .art-mosaic {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(110px, 31vw));
+    gap: 7px;
+    max-width: 480px;
+    width: 100%;
+    justify-self: center;
+    padding: 7px;
+  }
+
+  .hero-side-note {
+    display: none;
+  }
+
+  .exhibitions {
+    padding: 56px 8% 68px;
+  }
+
+  .section-heading {
+    align-items: start;
+  }
+
+  .section-note {
+    font-size: 9px;
+  }
+
+  .exhibition-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 14px;
+  }
+
+  .exhibition-card h3 {
+    font-size: 17px;
+  }
+
+  .exhibition-card > p {
+    min-height: 58px;
+    font-size: 10px;
+  }
+
+  .exhibition-card h2 {
+    font-size: 17px;
+  }
+
+  .artist-grid {
+    padding: 0 8% 60px;
+  }
+
+  .artist-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 22px 0;
+  }
+
+  .artist-card img {
+    max-height: 260px;
+  }
+
+  .visit-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 0 8% 60px;
+  }
+
+  .visit-map {
+    min-height: 240px;
+  }
+
+  .site-footer {
+    padding: 0 8%;
+  }
+
+  .site-footer > p {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-nav {
+    gap: 10px;
+  }
+
+  .exhibition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .artwork-link img {
+    aspect-ratio: 1.45;
+  }
+}
